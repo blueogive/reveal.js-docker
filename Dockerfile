@@ -8,7 +8,8 @@ RUN apt-get update && apt-get install -y \
 # Install revealjs
 RUN mkdir -p /revealjs
 WORKDIR /revealjs
-RUN git clone https://github.com/hakimel/reveal.js.git .
+RUN git clone https://github.com/hakimel/reveal.js.git . && \
+    git checkout tags/3.7.0 -b 3.7.0
 RUN npm install
 
 RUN mkdir -p /revealjs/presentations
@@ -39,7 +40,7 @@ RUN git clone https://github.com/rajgoel/reveal.js-plugins.git /revealjs/plugin/
 RUN mkdir -p /revealjs/plugin/footer && cd /revealjs/plugin/footer && wget https://raw.githubusercontent.com/e-gor/Reveal.js-Title-Footer/master/plugin/title-footer/title-footer.css && wget https://raw.githubusercontent.com/e-gor/Reveal.js-Title-Footer/master/plugin/title-footer/title-footer.js
 
 # Install Charts
-RUN mkdir -p /revealjs/plugin/chartjs && cd /revealjs/plugin/chartjs && wget https://gitlab.com/dvenkatsagar/reveal-chart/raw/master/plugin/chartjs/Chart.min.js && wget https://gitlab.com/dvenkatsagar/reveal-chart/raw/master/plugin/chartjs/charted.js 
+RUN mkdir -p /revealjs/plugin/chartjs && cd /revealjs/plugin/chartjs && wget https://gitlab.com/dvenkatsagar/reveal-chart/raw/master/plugin/chartjs/Chart.min.js && wget https://gitlab.com/dvenkatsagar/reveal-chart/raw/master/plugin/chartjs/charted.js
 
 # Install vis.js
 RUN mkdir -p /revealjs/plugin/visjs && git clone https://github.com/almende/vis.git /revealjs/plugin/visjs
