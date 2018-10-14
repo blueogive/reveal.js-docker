@@ -1,5 +1,7 @@
 # Dockerimage for running reveal.js with plugins
 
+[![](https://images.microbadger.com/badges/image/blueogive/reveal.js-docker.svg)](https://microbadger.com/images/blueogive/reveal.js-docker "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/blueogive/reveal.js-docker.svg)](https://microbadger.com/images/blueogive/reveal.js-docker "Get your own version badge on microbadger.com")
+
 This images makes it easy to use
 [reveal.js](https://github.com/hakimel/reveal.js/) with docker. It supports the
 use of the following plugins:
