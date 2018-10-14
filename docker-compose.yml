@@ -1,0 +1,14 @@
+# To start the service in detached mode:
+# docker-compose up -d
+# To stop it:
+# docker-compose down
+version: '3'
+services:
+  revealjs:
+    image: blueogive/reveal.js-docker
+    ports:
+      - "8000:8000"
+      - "35729:35729"
+    volumes:
+      - ./doc/talks:/revealjs/presentations
+      # - ./presentations:/revealjs/presentations
