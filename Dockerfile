@@ -1,5 +1,4 @@
 FROM node
-MAINTAINER Janosch Deurer <janosch.deurer@geonautik.de>
 
 # Install
 RUN apt-get update && apt-get install -y \
@@ -45,8 +44,17 @@ RUN mkdir -p /revealjs/plugin/chartjs && cd /revealjs/plugin/chartjs && wget htt
 # Install vis.js
 RUN mkdir -p /revealjs/plugin/visjs && git clone https://github.com/almende/vis.git /revealjs/plugin/visjs
 
+# Add image metadata
+LABEL org.label-schema.license="https://github.com/hakimel/reveal.js/blob/master/LICENSE" \
+    org.label-schema.vendor="Hakim El Hattab, Dockerfile provided by Mark Coggeshall, forked from agiled-de/reveal.js-docker" \
+	org.label-schema.name="reveal.js" \
+	org.label-schema.description="Docker images of reveal.js with select plugins." \
+	org.label-schema.vcs-url=$VCS_URL \
+	org.label-schema.vcs-ref=$VCS_REF \
+	org.label-schema.build-date=$BUILD_DATE \
+	org.label-schema.schema-version="rc1" \
+	maintainer="Mark Coggeshall <mark.coggeshall@gmail.com>"
 
 ADD ./docker-entrypoint.sh /
 RUN chmod u+x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
-
