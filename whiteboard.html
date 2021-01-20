@@ -12,63 +12,61 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link type="text/css" rel="stylesheet" href="./dist/reset.css">
-		<link type="text/css" rel="stylesheet" href="./custom.css">
-		<link type="text/css" rel="stylesheet" href="./dist/reveal.css">
-		<link type="text/css" rel="stylesheet" href="./dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+
+		<!-- Theme used for title-footer plugin -->
 		<link type="text/css" rel="stylesheet" href="./plugin/title-footer/title-footer.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link type="text/css" rel="stylesheet" href="./plugin/highlight/zenburn.css">
+		<link rel="stylesheet" href="plugin/highlight/zenburn.css" id="highlight-theme">
 
 		<!-- Font Awesome is required by the Chalkboard plugin -->
 		<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-		<!-- Printing and PDF exports -->
-		<!-- <script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script> -->
-
-		<!--[if lt IE 9]>
-		<script src="../../lib/js/html5shiv.js"></script>
-		<![endif]-->
 	</head>
+
 	<body>
+
 		<div class="reveal">
+
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
+				<section data-markdown>
+##### Instructions
+* Whiteboard: `b` to enable/disable the whiteboard.
+* Annotator: `c` to enable/disable drawing on the slide
+* Left click (or touch and drag) to write notes on the canvas
+* Right click (or touch and hold, the drag) to activate the eraser
+* `Del` or `Bksp` to clear the canvas
+* `d` key to download drawing
+* `x` key to cycle colors forward
+* `y` key to cycle colors backward
+                </section>
 
-				<section data-markdown="index.md"
-				  data-separator="^---"
-				  data-separator-vertical="^--"
-				  data-separator-notes="^Note:"
-				  data-charset="utf-8">
-				</section>
-
-
+                <section></section>
+			</div>
 
 		</div>
 
-		<!-- <script src="../lib/js/head.min.js"></script> -->
-		<script src="./dist/reveal.js"></script>
-		<script src="./plugin/zoom/zoom.js"></script>
-		<script src="./plugin/notes/notes.js"></script>
-		<script src="./plugin/search/search.js"></script>
-		<script src="./plugin/markdown/markdown.js"></script>
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
 		<script src="./plugin/highlight/highlight.js"></script>
 		<script src="./plugin/chalkboard/plugin.js"></script>
 		<script src="./plugin/math/math.js"></script>
 		<script src="./plugin/menu/menu.js"></script>
-
 		<script>
 
-			// More info https://github.com/hakimel/reveal.js#configuration
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
 			Reveal.initialize({
+				hash: true,
 				//////////////////////
 				// IMPORTANT OPTIONS
 				/////////////////////
@@ -169,7 +167,6 @@
 				// - Set to 0 to disable movement along an axis
 				// parallaxBackgroundHorizontal: null,
 				// parallaxBackgroundVertical: null
-
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealChalkboard, RevealMenu, RevealMath ],
@@ -280,7 +277,7 @@
 					transition: 800,
 					theme: "whiteboard",
 					background: [ 'rgba(127,127,127,.1)' , path + 'img/whiteboard.png' ],
-					grid: { color: 'rgb(50,50,10,0.5)', distance: 40, width: 1},
+					grid: { color: 'rgb(50,50,10,0.2)', distance: 40, width: 1},
 					eraser: { src: path + 'img/sponge.png', radius: 10},
 					boardmarkers : [
 							{ color: 'rgba(100,100,100,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
@@ -342,30 +339,6 @@
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-				// Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
-				// { src: '../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
-
-				// Interpret Markdown in <section> elements
-				//{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				//{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-
-				// Syntax highlight for <code> elements
-				// { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-
-				// Zoom in and out with Alt+click
-				// { src: '../plugin/zoom/zoom.js', async: true },
-
-				// Speaker notes
-				// { src: '../plugin/notes/notes.js', async: true },
-
-				// MathJax
-				//{ src: '../plugin/math/math.js', async: true },
-
-				// Menu
-				//{ src: '../plugin/menu/menu.js' },
-
-				// Chalkboard
-				//{ src: '../plugin/chalkboard/plugin.js' },
 
 				// Title-Footer
 				{ src: './plugin/title-footer/title-footer.js', async: true, callback: function() { title_footer.initialize(); } },
@@ -377,8 +350,8 @@
 				{ src: './plugin/visjs/dist/vis.js', async: false},
 				{ src: './graphs.js', async: true}
 				]
-
 			});
+
 		</script>
 
 	</body>

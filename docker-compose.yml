@@ -2,12 +2,12 @@
 # docker-compose up -d
 # To stop it:
 # docker-compose down
-version: '3'
+version: '3.7'
 services:
   revealjs:
     image: blueogive/reveal.js-docker
     ports:
-      - "8000:8000"
+      - "9000:8000"
       - "35729:35729"
     volumes:
       - ./doc/talks:/revealjs/presentations

@@ -53,7 +53,7 @@ Note: Here you can see also some notes.
 
 ---
 
-## Stiling in Markdown
+## Styling in Markdown
 
 Make things **bold** or *italic*
 

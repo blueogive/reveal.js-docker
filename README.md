@@ -25,34 +25,25 @@ use of the following plugins:
 The image can be started with:
 
 ```
-docker run -p 8000:8000 \
-           -p 35729:35729 \
-           -v ./presentations:/revealjs/presentations \
-           agiled/reveal.js-docker
+docker run -d --name revealjs \
+    -p 9000:8000 \
+    -p 35729:35729 \
+    -v ./presentations:/revealjs \
+    blueogive/reveal.js-docker
 ```
 
-For easier use I recommend using a docker-compose.yml like this:
+For easier use I recommend using a `docker-compose.yml` like this:
 
 ```
 revealjs:
-  image: agiled/reveal.js-docker
+  image: blueogive/reveal.js-docker
   ports:
-    - "8000:8000"
+    - "9000:8000"
     - "35729:35729"
   volumes:
-   - ./presentations:/revealjs/presentations
+   - ./presentations:/revealjs
 ```
 
 ## Access reveal.js
 
-reveal.js will be available on ```localhost:8000```. The side will show the
-direcories in ```./presentations``` click on ```demo``` to start the demo
-presentation.
-
-## Create new presentations
-
-To create a new presentation I recommend copying the demo presentation and
-modify it. If you want to create a copletely new presentation, make shure that
-you set the path to the reveal.js resources correctly. The resources are in the
-directory above the presentations, so all paths should start with ```../..```.
-
+With the container running, the default presentation is accessible by browsing to `[http://localhost:9000](http://localhost:9000)`. The official reveal.js demo presentation is available at `[http://localhost:9000/demo.html](http://localhost:9000/demo.html)`. A two-slide whiteboard demo is available at `[http://localhost:9000/whiteboard.html](http://localhost:9000/whiteboard.html)`.
